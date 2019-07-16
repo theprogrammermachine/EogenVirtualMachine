@@ -9,7 +9,7 @@ class EogenRuntime {
         void run_code(const list<Codes::Code*>& codes);
         bool handle_if_section(Codes::Code* condition, list<Codes::Code*> codes);
         bool handle_switch_section(Codes::Code* c1, Codes::Code* c2);
-        void reduce_code(Codes::Code* code, Codes::Code* result);
+        Codes::Code* reduce_code(Codes::Code* code);
         template <typename T>
         static bool convertBoostAnyToType(boost::any var, T* address);
 };
