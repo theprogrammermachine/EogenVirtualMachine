@@ -248,6 +248,12 @@ emmintrin.h
 arm_neon.h
 -
 
+D:/My Documents/Projects/C++/EogenVirtualMachine/EogenDriver.cpp
+iostream
+-
+EogenRuntime.hpp
+D:/My Documents/Projects/C++/EogenVirtualMachine/EogenRuntime.hpp
+
 D:/My Documents/Projects/C++/EogenVirtualMachine/EogenRuntime.cpp
 EogenRuntime.hpp
 D:/My Documents/Projects/C++/EogenVirtualMachine/EogenRuntime.hpp

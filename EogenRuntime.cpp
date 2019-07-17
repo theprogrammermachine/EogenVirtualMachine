@@ -26,7 +26,7 @@ EogenRuntime::EogenRuntime() {
     auto* io_print_func = new Codes::Function();
     io_print_func->codes.push_back(io_print_syscall);
     ioClass->funcsData["print"] = io_print_func;
-    classes.insert({"io", ioClass});
+    classes["io"] = ioClass;
 }
 
 template <typename K, typename V>
@@ -38,22 +38,6 @@ list<pair<K, V>> readWholeMap(unordered_map<K, V> map) {
 }
 
 void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
-
-    cout << "trying to find num1 id\n";
-    Codes::Code* varVal;
-    for (int counter = ids.size() - 1; counter >= 0; counter--) {
-        unordered_map<string, Codes::Code*>::const_iterator i = ids[counter].find("num1");
-        if (i != ids[counter].end()) {
-            varVal = ids[counter]["num1"];
-            cout << "found num1 value\n";
-            boost::any test = *varVal;
-            cout << "type is : " << test.type().name() << "\n";
-            if (auto* a = dynamic_cast<Codes::ValueNumber*>(varVal)) {
-                cout << "num1 value is value:number\n";
-            }
-        }
-    }
-
 
     for (Codes::Code* code : codes) {
 
@@ -73,8 +57,7 @@ void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
                     }
                 }
                 if (!found) {
-                    Codes::Code* redValue = reduce_code(asg->value);
-                    ids[ids.size() - 1].insert({id->name, redValue});
+                    ids[ids.size() - 1][id->name] = reduce_code(asg->value);
                 }
             }
         }
@@ -493,18 +476,7 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
     return code;
 }
 
-template <typename T>
-bool EogenRuntime::convertBoostAnyToType(boost::any arg, T* address) {
-    try {
-        *address = boost::any_cast<T &>(arg);
-        return true;
-    }
-    catch (exception) {
-        return false;
-    }
-}
-
-bool EogenRuntime::handle_if_section(Codes::Code* condition, list<Codes::Code*> codes) {
+bool EogenRuntime::handle_if_section(Codes::Code* condition, const list<Codes::Code*>& codes) {
     bool matched = false;
     Codes::Code* redCond = reduce_code(condition);
     if (auto *value = dynamic_cast<Codes::Value*>(redCond)) {

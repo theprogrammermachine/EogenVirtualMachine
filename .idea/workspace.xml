@@ -12,54 +12,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cff7cf8-7221-44bd-ae3b-f745bfe7182f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/allocators.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/cursorstreamwrapper.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/document.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/encodedstream.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/encodings.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/error/en.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/error/error.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/filereadstream.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/filewritestream.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/fwd.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/biginteger.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/diyfp.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/dtoa.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/ieee754.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/itoa.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/meta.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/pow10.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/regex.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/stack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/strfunc.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/strtod.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/internal/swap.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/istreamwrapper.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/memorybuffer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/memorystream.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/msinttypes/inttypes.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/msinttypes/stdint.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/ostreamwrapper.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/pointer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/prettywriter.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/rapidjson.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/reader.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/schema.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/stream.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/stringbuffer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/rapidjson/writer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/adl_serializer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/conversions/from_json.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/conversions/to_chars.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/conversions/to_json.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/exceptions.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/input/binary_reader.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/input/input_adapters.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/input/json_sax.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/input/lexer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/input/parser.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/input/position_t.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/iterators/internal_iterator.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/iterators/iter_impl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/iterators/iteration_proxy.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/iterators/iterator_traits.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/iterators/json_reverse_iterator.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/iterators/primitive_iterator.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/json_pointer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/json_ref.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/macro_scope.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/macro_unscope.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/meta/cpp_future.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/meta/detected.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/meta/is_sax.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/meta/type_traits.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/meta/void_t.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/output/binary_writer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/output/output_adapters.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/output/serializer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/detail/value_t.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/json.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/json_fwd.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/thirdparty/hedley/hedley.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/nlohmann/thirdparty/hedley/hedley_undef.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EogenDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EogenDriver.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EogenRuntime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EogenRuntime.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EogenRuntime.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/EogenRuntime.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/includes_CXX.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/includes_CXX.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/EogenVirtualMachine.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EogenVirtualMachine.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/EogenVirtualMachine.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EogenVirtualMachine.exe" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -78,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EogenDriver.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="238">
+              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -90,22 +86,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EogenRuntime.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+            <state relative-caret-position="87">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/SysCallHandler.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#1#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,6 +105,7 @@
       <find>class Code*</find>
       <find>reduce_code</find>
       <find>cout</find>
+      <find>insert</find>
     </findStrings>
     <replaceStrings>
       <replace>unordered_map</replace>
@@ -146,11 +131,11 @@
         <option value="$PROJECT_DIR$/api/SysCall.cpp" />
         <option value="$PROJECT_DIR$/api/SysCallHandler.h" />
         <option value="$PROJECT_DIR$/Models.hpp" />
-        <option value="$PROJECT_DIR$/EogenRuntime.hpp" />
-        <option value="$PROJECT_DIR$/api/SysCallHandler.cpp" />
         <option value="$PROJECT_DIR$/EogenDriver.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/api/SysCallHandler.cpp" />
+        <option value="$PROJECT_DIR$/EogenRuntime.hpp" />
         <option value="$PROJECT_DIR$/EogenRuntime.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -234,24 +219,23 @@
       <workItem from="1562334849580" duration="1532000" />
       <workItem from="1562430827058" duration="7147000" />
       <workItem from="1562443807920" duration="11694000" />
-      <workItem from="1563347953743" duration="8771000" />
+      <workItem from="1563347953743" duration="11821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48955000" />
+    <option name="totallyTimeSpent" value="52005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2671141" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2671141" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39943343" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -260,7 +244,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="CMake" order="12" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -330,16 +314,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EogenRuntime.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding>
-            <element signature="e#400#412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/SysCallHandler.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -357,43 +331,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EogenDriver.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tao_json/doc/README.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/include/rapidjson/error/en.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/EogenDriver.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="79" lean-forward="true" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
+        <state relative-caret-position="238">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/SysCallHandler.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#1#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/EogenRuntime.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/nlohmann/detail/meta/is_sax.hpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EogenRuntime.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+        <state relative-caret-position="87">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

@@ -250,6 +250,9 @@ EogenVirtualMachine_BINARY_DIR:STATIC=D:/My Documents/Projects/C++/EogenVirtualM
 //Value Computed by CMake
 EogenVirtualMachine_SOURCE_DIR:STATIC=D:/My Documents/Projects/C++/EogenVirtualMachine
 
+//The directory containing a CMake configuration file for nlohmann_json.
+nlohmann_json_DIR:PATH=nlohmann_json_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
