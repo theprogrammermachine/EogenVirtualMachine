@@ -26,6 +26,7 @@
 				<Compiler>
 					<Add directory="D:/ProgramFilesWithNoSpace/boost_1_70_0"/>
 					<Add directory="D:/My Documents/Projects/C++/EogenVirtualMachine/api"/>
+					<Add directory="D:/My Documents/Projects/C++/EogenVirtualMachine/include"/>
 					<Add directory="D:/ProgramFilesWithNoSpace/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.1/include"/>
 					<Add directory="D:/ProgramFilesWithNoSpace/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.1/include-fixed"/>
 					<Add directory="D:/ProgramFilesWithNoSpace/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.1/../../../../x86_64-w64-mingw32/include"/>
@@ -49,6 +50,7 @@
 				<Compiler>
 					<Add directory="D:/ProgramFilesWithNoSpace/boost_1_70_0"/>
 					<Add directory="D:/My Documents/Projects/C++/EogenVirtualMachine/api"/>
+					<Add directory="D:/My Documents/Projects/C++/EogenVirtualMachine/include"/>
 					<Add directory="D:/ProgramFilesWithNoSpace/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.1/include"/>
 					<Add directory="D:/ProgramFilesWithNoSpace/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.1/include-fixed"/>
 					<Add directory="D:/ProgramFilesWithNoSpace/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.1/../../../../x86_64-w64-mingw32/include"/>

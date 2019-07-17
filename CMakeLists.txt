@@ -15,4 +15,6 @@ else()
 endif()
 
 include_directories(api)
+include_directories("D:/My Documents/Projects/C++/EogenVirtualMachine/include")
+
 add_executable(EogenVirtualMachine EogenDriver.cpp EogenRuntime.cpp api/IO.cpp api/IO.hpp api/SysCallHandler.cpp api/SysCallHandler.h)

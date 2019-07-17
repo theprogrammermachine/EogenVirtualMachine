@@ -27,8 +27,11 @@ int main(int argc, char const *argv[])
     call->funcReference = funcId;
     unordered_map<string, Codes::Code*> entries;
     auto* strVal = new Codes::ValueString();
-    strVal->value = "Hello world !";
-    entries["text"] = strVal;
+    strVal->value = "Result is : ";
+    auto* strSum = new Codes::MathExpSum();
+    strSum->value1 = strVal;
+    strSum->value2 = id;
+    entries["text"] = strSum;
     call->entries = entries;
     auto* classId = new Codes::Identifier();
     classId->name = "io";

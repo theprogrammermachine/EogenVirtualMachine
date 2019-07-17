@@ -1,8 +1,11 @@
-#include "EogenRuntime.hpp"
+#include"EogenRuntime.hpp"
 #include <vector>
 #include <cmath>
 #include <c++/iostream>
 #include "api/IO.hpp"
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
 
 using namespace std;
 
@@ -36,6 +39,22 @@ list<pair<K, V>> readWholeMap(unordered_map<K, V> map) {
 
 void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
 
+    cout << "trying to find num1 id\n";
+    Codes::Code* varVal;
+    for (int counter = ids.size() - 1; counter >= 0; counter--) {
+        unordered_map<string, Codes::Code*>::const_iterator i = ids[counter].find("num1");
+        if (i != ids[counter].end()) {
+            varVal = ids[counter]["num1"];
+            cout << "found num1 value\n";
+            boost::any test = *varVal;
+            cout << "type is : " << test.type().name() << "\n";
+            if (auto* a = dynamic_cast<Codes::ValueNumber*>(varVal)) {
+                cout << "num1 value is value:number\n";
+            }
+        }
+    }
+
+
     for (Codes::Code* code : codes) {
 
         if (auto* syscall = dynamic_cast<Codes::SysCall*>(code)) {
@@ -43,8 +62,7 @@ void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
             sysCallHandler->handleSystemCall(syscall->callRefStr, ids.back());
         }
         else if (auto *asg = dynamic_cast<Codes::Assignment*>(code)) {
-            Codes::Code* redId = reduce_code(asg->var);
-            if (auto* id = dynamic_cast<Codes::Identifier*>(redId)) {
+            if (auto* id = dynamic_cast<Codes::Identifier*>(asg->var)) {
                 bool found = false;
                 for (int counter = ids.size() - 1; counter >= 0 ; counter--) {
                     if (ids[counter][id->name] != nullptr) {
@@ -432,25 +450,28 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
     else if (auto* identifier = dynamic_cast<Codes::Identifier*>(code)) {
         Codes::Code* varVal;
         for (int counter = ids.size() - 1; counter >= 0; counter--) {
-            varVal = ids[counter][identifier->name];
-            if (varVal != nullptr) {
-                reduce_code(varVal);
-                return new Codes::Code();
+            unordered_map<string, Codes::Code*>::const_iterator i = ids[counter].find(identifier->name);
+            if (i != ids[counter].end()) {
+                varVal = ids[counter][identifier->name];
+                Codes::Code* c = reduce_code(varVal);
+                return c;
             }
         }
         Codes::Function* funcVal;
         for (int counter = funcs.size() - 1; counter >= 0; counter--) {
-            funcVal = funcs[counter][identifier->name];
-            if (funcVal != nullptr) {
-                reduce_code(funcVal);
-                return new Codes::Code();
+            unordered_map<string, Codes::Function*>::const_iterator i = funcs[counter].find(identifier->name);
+            if (i != funcs[counter].end()) {
+                funcVal = funcs[counter][identifier->name];
+                return reduce_code(funcVal);
             }
         }
         Codes::Class* classVal = classes[identifier->name];
         if (classVal != nullptr) {
             return classVal;
         }
-        return identifier;
+        auto* id = new Codes::Identifier();
+        id->name = identifier->name;
+        return id;
     }
     else if (auto *call = dynamic_cast<Codes::Call*>(code)) {
         Codes::Code* redFunc = reduce_code(call->funcReference);
@@ -468,9 +489,8 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
             ids.pop_back();
         }
     }
-    else {
-        return code;
-    }
+
+    return code;
 }
 
 template <typename T>
