@@ -4,18 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/My Documents/Projects/C++/EogenVirtualMachine/EogenDriver.cpp" "D:/My Documents/Projects/C++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.obj"
-  "D:/My Documents/Projects/C++/EogenVirtualMachine/EogenRuntime.cpp" "D:/My Documents/Projects/C++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.obj"
-  "D:/My Documents/Projects/C++/EogenVirtualMachine/api/IO.cpp" "D:/My Documents/Projects/C++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/api/IO.cpp.obj"
-  "D:/My Documents/Projects/C++/EogenVirtualMachine/api/SysCallHandler.cpp" "D:/My Documents/Projects/C++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.obj"
+  "/home/keyhan/projects/c++/EogenVirtualMachine/EogenDriver.cpp" "/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.o"
+  "/home/keyhan/projects/c++/EogenVirtualMachine/EogenRuntime.cpp" "/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.o"
+  "/home/keyhan/projects/c++/EogenVirtualMachine/api/IO.cpp" "/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/api/IO.cpp.o"
+  "/home/keyhan/projects/c++/EogenVirtualMachine/api/SysCallHandler.cpp" "/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.o"
+  "/home/keyhan/projects/c++/EogenVirtualMachine/api/Time.cpp" "/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir/api/Time.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "D:/ProgramFilesWithNoSpace/boost_1_70_0"
+  "/home/keyhan/globe_libs/boost_1_70_0"
   "../api"
   "../include"
+  "/usr/local/lib"
   )
 
 # Targets to which this target links.

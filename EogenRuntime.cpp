@@ -1,11 +1,12 @@
-#include"EogenRuntime.hpp"
+#include "EogenRuntime.hpp"
 #include <vector>
 #include <cmath>
-#include <c++/iostream>
+#include <iostream>
 #include "api/IO.hpp"
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
+#include "gmp.h"
 
 using namespace std;
 
@@ -27,23 +28,31 @@ EogenRuntime::EogenRuntime() {
     io_print_func->codes.push_back(io_print_syscall);
     ioClass->funcsData["print"] = io_print_func;
     classes["io"] = ioClass;
+
+    auto* timeClass = new Codes::Class();
+    auto* time_current_millis_syscall = new Codes::SysCall();
+    time_current_millis_syscall->callRefStr = "time.currentMillis";
+    auto* time_current_millis_func = new Codes::Function();
+    time_current_millis_func->codes.push_back(time_current_millis_syscall);
+    timeClass->funcsData["currentMillis"] = time_current_millis_func;
+    classes["time"] = timeClass;
 }
 
 template <typename K, typename V>
 list<pair<K, V>> readWholeMap(unordered_map<K, V> map) {
     list<pair<K, V>> result;
-    for (pair<K, V> item : map)
+    for (const pair<K, V> item : map)
         result.push_back(item);
     return result;
 }
 
-void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
+Codes::Code* EogenRuntime::run_code(const list<Codes::Code*>& codes) {
 
     for (Codes::Code* code : codes) {
 
         if (auto* syscall = dynamic_cast<Codes::SysCall*>(code)) {
             auto* sysCallHandler = new SysCallHandler();
-            sysCallHandler->handleSystemCall(syscall->callRefStr, ids.back());
+            return sysCallHandler->handleSystemCall(syscall->callRefStr, ids.back());
         }
         else if (auto *asg = dynamic_cast<Codes::Assignment*>(code)) {
             if (auto* id = dynamic_cast<Codes::Identifier*>(asg->var)) {
@@ -90,7 +99,8 @@ void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
             Codes::Code* redStep = reduce_code(counterLoop->step);
             if (auto *limitVal = dynamic_cast<Codes::ValueNumber*>(redCounter)) {
                 if (auto *stepVal = dynamic_cast<Codes::ValueNumber*>(redStep)) {
-                    for (int counter = 0; counter < limitVal->value; counter += (int)(stepVal->value)) {
+                    mpz_t counter {};
+                    for (mpz_init_set_d(counter, 0); counter < limitVal->value; mpz_add(counter, counter, stepVal->value)) {
                         if ((limitVal = dynamic_cast<Codes::ValueNumber*>(redCounter))) {
                             if ((stepVal = dynamic_cast<Codes::ValueNumber*>(redStep))) {
                                 unordered_map<string, Codes::Code*> levelIds;
@@ -229,7 +239,7 @@ void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
                     else if (auto *classObj = dynamic_cast<Codes::Class*>(redCode2)) {
                         Codes::Function* f = classObj->funcsData[funcO->name];
                         unordered_map<string, Codes::Code*> levelIds;
-                        for (pair<string, Codes::Code*> kvp : callO->entries) {
+                        for (const auto& kvp : callO->entries) {
                             Codes::Code* redEntry = reduce_code(kvp.second);
                             levelIds[kvp.first] = redEntry;
                         }
@@ -243,7 +253,12 @@ void EogenRuntime::run_code(const list<Codes::Code*>& codes) {
                 }
             }
         }
+        else if (auto* ret = dynamic_cast<Codes::Return*>(code)) {
+            return reduce_code(ret->value);
+        }
     }
+
+    return new Codes::Code();
 }
 
 Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
@@ -253,24 +268,28 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
         if (auto* operand1 = dynamic_cast<Codes::ValueNumber*>(redOperand1)) {
             if (auto* operand2 = dynamic_cast<Codes::ValueNumber*>(redOperand2)) {
                 auto* c = new Codes::ValueNumber();
-                c->value = operand1->value + operand2->value;
+                mpz_add(c->value, operand1->value, operand2->value);
                 return c;
             }
             else if (auto* operand2_1 = dynamic_cast<Codes::ValueString*>(redOperand2)) {
                 auto* c = new Codes::ValueString();
-                c->value = to_string(operand1->value) + operand2_1->value;
+                auto str = mpz_get_str(nullptr, 10, operand1->value);
+                c->value = str + operand2_1->value;
                 return c;
             }
             else if (auto* operand2_2 = dynamic_cast<Codes::ValueBool*>(redOperand2)) {
                 auto* c = new Codes::ValueNumber();
-                c->value = operand1->value + (operand2_2->value ? 1 : 0);
+                mpz_t var {};
+                mpz_set_d(var, (operand2_2->value ? 1 : 0));
+                mpz_add(c->value, operand1->value, var);
                 return c;
             }
         }
         else if (auto* operand1_1 = dynamic_cast<Codes::ValueString*>(redOperand1)) {
             if (auto* operand2 = dynamic_cast<Codes::ValueNumber*>(redOperand2)) {
                 auto* c = new Codes::ValueString();
-                c->value = operand1_1->value + to_string(operand2->value);
+                auto str = mpz_get_str(nullptr, 10, operand2->value);
+                c->value = operand1_1->value + str;
                 return c;
             }
             else if (auto* operand2_1 = dynamic_cast<Codes::ValueString*>(redOperand2)) {
@@ -287,7 +306,9 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
         else if (auto* operand1_2 = dynamic_cast<Codes::ValueBool*>(redOperand1)) {
             if (auto* operand2 = dynamic_cast<Codes::ValueNumber*>(redOperand2)) {
                 auto* c = new Codes::ValueNumber();
-                c->value = (operand1_2->value ? 1 : 0) + operand2->value;
+                mpz_t var {};
+                mpz_set_d(var, (operand1_2->value ? 1 : 0));
+                mpz_add(c->value, var, operand2->value);
                 return c;
             }
             else if (auto* operand2_1 = dynamic_cast<Codes::ValueString*>(redOperand2)) {
@@ -302,35 +323,35 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
             }
         }
     }
-    else if (auto* opMinus = dynamic_cast<Codes::MathExpSum*>(code)) {
+    else if (auto* opMinus = dynamic_cast<Codes::MathExpSubstract*>(code)) {
         Codes::Code* redOperand1 = reduce_code(opMinus->value1);
         Codes::Code* redOperand2 = reduce_code(opMinus->value2);
         if (auto* operand1 = dynamic_cast<Codes::ValueNumber*>(redOperand1)) {
             if (auto* operand2 = dynamic_cast<Codes::ValueNumber*>(redOperand2)) {
                 auto* c = new Codes::ValueNumber();
-                c->value = operand1->value - operand2->value;
+                mpz_sub(c->value, operand1->value, operand2->value);
                 return c;
             }
         }
     }
-    else if (auto* opMultiply = dynamic_cast<Codes::MathExpSum*>(code)) {
+    else if (auto* opMultiply = dynamic_cast<Codes::MathExpMultiply*>(code)) {
         Codes::Code* redOperand1 = reduce_code(opMultiply->value1);
         Codes::Code* redOperand2 = reduce_code(opMultiply->value2);
         if (auto* operand1 = dynamic_cast<Codes::ValueNumber*>(redOperand1)) {
             if (auto* operand2 = dynamic_cast<Codes::ValueNumber*>(redOperand2)) {
                 auto* c = new Codes::ValueNumber();
-                c->value = operand1->value * operand2->value;
+                mpz_mul(c->value, operand1->value, operand2->value);
                 return c;
             }
         }
     }
-    else if (auto* opDivide = dynamic_cast<Codes::MathExpSum*>(code)) {
+    else if (auto* opDivide = dynamic_cast<Codes::MathExpDivide*>(code)) {
         Codes::Code* redOperand1 = reduce_code(opDivide->value1);
         Codes::Code* redOperand2 = reduce_code(opDivide->value2);
         if (auto* operand1 = dynamic_cast<Codes::ValueNumber*>(redOperand1)) {
             if (auto* operand2 = dynamic_cast<Codes::ValueNumber*>(redOperand2)) {
                 auto* c = new Codes::ValueNumber();
-                c->value = operand1->value / operand2->value;
+                mpz_cdiv_q(c->value, operand1->value, operand2->value);
                 return c;
             }
         }
@@ -341,7 +362,8 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
         if (auto* operand1 = dynamic_cast<Codes::ValueNumber*>(redOperand1)) {
             if (auto* operand2 = dynamic_cast<Codes::ValueNumber*>(redOperand2)) {
                 auto* c = new Codes::ValueNumber();
-                c->value = pow(operand1->value, operand2->value);
+                unsigned long p = mpz_get_d(operand2->value);
+                mpz_pow_ui(c->value, operand1->value, p);
                 return c;
             }
         }
@@ -388,33 +410,41 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
     }
     else if (auto* onChain = dynamic_cast<Codes::On*>(code)) {
         Codes::Code* redCode2 = reduce_code(onChain->code2);
-        if (auto* call = dynamic_cast<Codes::Call*>(onChain->code1)) {
-            Codes::Code* redCallFunc = reduce_code(call->funcReference);
-            if (auto* func = dynamic_cast<Codes::Function*>(redCallFunc)) {
-                if (auto *instance = dynamic_cast<Codes::Instance *>(redCode2)) {
+        if (auto* callO = dynamic_cast<Codes::Call*>(onChain->code1)) {
+            Codes::Code* redCallFunc = reduce_code(callO->funcReference);
+            if (auto* funcO = dynamic_cast<Codes::Identifier*>(redCallFunc)) {
+                if (auto *instance = dynamic_cast<Codes::Instance*>(redCode2)) {
                     Codes::Code* rawClassRef = reduce_code(instance->classReference);
                     if (auto *classRef = dynamic_cast<Codes::Class*>(rawClassRef)) {
-                        Codes::Function* f = classRef->funcsData[func->name];
+                        Codes::Function* f = classRef->funcsData[funcO->name];
                         unordered_map<string, Codes::Code*> levelIds;
+                        for (pair<string, Codes::Code*>& kvp : readWholeMap<string, Codes::Code*>(callO->entries)) {
+                            Codes::Code* redEntry = reduce_code(kvp.second);
+                            levelIds[kvp.first] = redEntry;
+                        }
                         ids.push_back(levelIds);
                         unordered_map<string, Codes::Function*> levelFuncs;
                         funcs.push_back(levelFuncs);
-                        run_code(f->codes);
+                        Codes::Code* res = run_code(f->codes);
                         funcs.pop_back();
                         ids.pop_back();
-                        return new Codes::Code();
+                        return res;
                     }
                 }
                 else if (auto *classObj = dynamic_cast<Codes::Class*>(redCode2)) {
-                    Codes::Function* f = classObj->funcsData[func->name];
+                    Codes::Function* f = classObj->funcsData[funcO->name];
                     unordered_map<string, Codes::Code*> levelIds;
+                    for (const auto& kvp : callO->entries) {
+                        Codes::Code* redEntry = reduce_code(kvp.second);
+                        levelIds[kvp.first] = redEntry;
+                    }
                     ids.push_back(levelIds);
                     unordered_map<string, Codes::Function*> levelFuncs;
                     funcs.push_back(levelFuncs);
-                    run_code(f->codes);
+                    Codes::Code* res = run_code(f->codes);
                     funcs.pop_back();
                     ids.pop_back();
-                    return new Codes::Code();
+                    return res;
                 }
             }
         }
@@ -433,7 +463,7 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
     else if (auto* identifier = dynamic_cast<Codes::Identifier*>(code)) {
         Codes::Code* varVal;
         for (int counter = ids.size() - 1; counter >= 0; counter--) {
-            unordered_map<string, Codes::Code*>::const_iterator i = ids[counter].find(identifier->name);
+            auto i = ids[counter].find(identifier->name);
             if (i != ids[counter].end()) {
                 varVal = ids[counter][identifier->name];
                 Codes::Code* c = reduce_code(varVal);
@@ -442,7 +472,7 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
         }
         Codes::Function* funcVal;
         for (int counter = funcs.size() - 1; counter >= 0; counter--) {
-            unordered_map<string, Codes::Function*>::const_iterator i = funcs[counter].find(identifier->name);
+            auto i = funcs[counter].find(identifier->name);
             if (i != funcs[counter].end()) {
                 funcVal = funcs[counter][identifier->name];
                 return reduce_code(funcVal);
@@ -467,9 +497,10 @@ Codes::Code* EogenRuntime::reduce_code(Codes::Code* code) {
             ids.push_back(levelIds);
             unordered_map<string, Codes::Function*> levelFuncs;
             funcs.push_back(levelFuncs);
-            run_code(func->codes);
+            Codes::Code* res = run_code(func->codes);
             funcs.pop_back();
             ids.pop_back();
+            return res;
         }
     }
 
@@ -481,7 +512,7 @@ bool EogenRuntime::handle_if_section(Codes::Code* condition, const list<Codes::C
     Codes::Code* redCond = reduce_code(condition);
     if (auto *value = dynamic_cast<Codes::Value*>(redCond)) {
         if (auto *valueNum = dynamic_cast<Codes::ValueNumber*>(value)) {
-            if (valueNum->value == 1) {
+            if (mpz_get_d(valueNum->value) == 1) {
                 unordered_map<string, Codes::Code*> levelIds;
                 ids.push_back(levelIds);
                 unordered_map<string, Codes::Function*> levelFuncs;

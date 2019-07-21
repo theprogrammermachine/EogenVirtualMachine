@@ -1,7 +1,9 @@
 #include <list>
 #include <string>
-#include <boost/any.hpp>
+#include </home/keyhan/globe_libs/boost_1_70_0/boost/any.hpp>
 #include <unordered_map>
+#include <gmp.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -164,7 +166,10 @@ class Codes {
     class ValueNumber : public Code {
 
         public:
-        double value;
+        mpz_t value {};
+        void setValue(long double val) {
+            mpz_set_d(value, val);
+        }
     };
 
     class ValueBool : public Code {

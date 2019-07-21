@@ -1,12 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.obj"
-  "CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.obj"
-  "CMakeFiles/EogenVirtualMachine.dir/api/IO.cpp.obj"
-  "CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.obj"
+  "CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.o"
+  "CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.o"
+  "CMakeFiles/EogenVirtualMachine.dir/api/IO.cpp.o"
+  "CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.o"
+  "CMakeFiles/EogenVirtualMachine.dir/api/Time.cpp.o"
   "EogenVirtualMachine.pdb"
-  "EogenVirtualMachine.exe"
-  "EogenVirtualMachine.exe.manifest"
-  "libEogenVirtualMachine.dll.a"
+  "EogenVirtualMachine"
 )
 
 # Per-language clean rules from dependency scanning.
