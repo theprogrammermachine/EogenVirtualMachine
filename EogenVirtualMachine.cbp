@@ -77,10 +77,16 @@
 		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Dictionary.h">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Driver.c">
+			<Option target="EogenVirtualMachine"/>
+		</Unit>
 		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Models.h">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
 		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Rider.c">
+			<Option target="EogenVirtualMachine"/>
+		</Unit>
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Stack.h">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
 		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/CMakeLists.txt">

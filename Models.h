@@ -114,6 +114,24 @@ typedef struct
     char* value2Type;
 } GT;
 
+typedef struct
+{
+    Exp exp;
+    Exp value1;
+    char* value1Type;
+    Exp value2;
+    char* value2Type;
+} And;
+
+typedef struct
+{
+    Exp exp;
+    Exp value1;
+    char* value1Type;
+    Exp value2;
+    char* value2Type;
+} Or;
+
 typedef struct {
     Exp exp;
     void* value;

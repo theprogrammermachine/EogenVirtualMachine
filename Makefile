@@ -123,6 +123,33 @@ EogenVirtualMachine/fast:
 	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/build
 .PHONY : EogenVirtualMachine/fast
 
+Driver.o: Driver.c.o
+
+.PHONY : Driver.o
+
+# target to build an object file
+Driver.c.o:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Driver.c.o
+.PHONY : Driver.c.o
+
+Driver.i: Driver.c.i
+
+.PHONY : Driver.i
+
+# target to preprocess a source file
+Driver.c.i:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Driver.c.i
+.PHONY : Driver.c.i
+
+Driver.s: Driver.c.s
+
+.PHONY : Driver.s
+
+# target to generate assembly for a file
+Driver.c.s:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Driver.c.s
+.PHONY : Driver.c.s
+
 Rider.o: Rider.c.o
 
 .PHONY : Rider.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... EogenVirtualMachine"
 	@echo "... edit_cache"
+	@echo "... Driver.o"
+	@echo "... Driver.i"
+	@echo "... Driver.s"
 	@echo "... Rider.o"
 	@echo "... Rider.i"
 	@echo "... Rider.s"

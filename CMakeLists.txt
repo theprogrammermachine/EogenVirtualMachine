@@ -20,10 +20,11 @@ include_directories(/home/keyhan/projects/c++/EogenVirtualMachine/include)
 
 add_executable(
         EogenVirtualMachine
+        Driver.c
         Rider.c
         Models.h
         Dictionary.h
-)
+        Stack.h)
 
 target_compile_options(EogenVirtualMachine PRIVATE -lmpir -lgmp)
 

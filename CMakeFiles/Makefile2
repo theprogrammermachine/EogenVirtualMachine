@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/EogenVirtualMachine.dir/all:
 	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/depend
 	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles --progress-num=1,2 "Built target EogenVirtualMachine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles --progress-num=1,2,3 "Built target EogenVirtualMachine"
 .PHONY : CMakeFiles/EogenVirtualMachine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EogenVirtualMachine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EogenVirtualMachine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles 0
 .PHONY : CMakeFiles/EogenVirtualMachine.dir/rule
