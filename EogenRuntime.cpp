@@ -1,12 +1,7 @@
 #include "EogenRuntime.hpp"
 #include <vector>
-#include <cmath>
-#include <iostream>
 #include "api/IO.hpp"
-#include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
-#include "gmp.h"
+#include <mpir/mpir.h>
 
 using namespace std;
 

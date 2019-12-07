@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.o CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.o CMakeFiles/EogenVirtualMachine.dir/api/IO.cpp.o CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.o CMakeFiles/EogenVirtualMachine.dir/api/Time.cpp.o  -o EogenVirtualMachine -lgmp 

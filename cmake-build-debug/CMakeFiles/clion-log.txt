@@ -1,7 +1,5 @@
-/snap/clion/73/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/keyhan/projects/c++/EogenVirtualMachine
--- Boost version: 1.70.0
+/home/keyhan/Softwares-Data/clion-2019.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/keyhan/projects/c++/EogenVirtualMachine
 -- Found boost
--- Found GMP: /usr/local/lib/libgmp.so
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug
+-- Build files have been written to: /home/keyhan/projects/c++/EogenVirtualMachine

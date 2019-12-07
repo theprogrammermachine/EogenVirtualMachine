@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10.2)
 project(EogenVirtualMachine)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -14,45 +14,17 @@ else()
     message("-- Boost not found")
 endif()
 
+include_directories(/home/keyhan/globe_libs/boost_1_70_0)
 include_directories(/home/keyhan/projects/c++/EogenVirtualMachine/api)
-include_directories("/home/keyhan/projects/c++/EogenVirtualMachine/include")
-include_directories("/usr/local/lib")
-include_directories("/usr/local/include")
-
-set(GMP_PREFIX "" CACHE PATH "path ")
-
-
-find_path(GMP_INCLUDE_DIR gmp.h gmpxx.h
-        PATHS ${GMP_PREFIX}/include /usr/include /usr/local/include )
-
-find_library(GMP_LIBRARY NAMES gmp libgmp
-        PATHS ${GMP_PREFIX}/lib /usr/lib /usr/local/lib)
-
-
-if(GMP_INCLUDE_DIR AND GMP_LIBRARY)
-    get_filename_component(GMP_LIBRARY_DIR ${GMP_LIBRARY} PATH)
-    set(GMP_FOUND TRUE)
-endif()
-
-if(GMP_FOUND)
-    if(NOT GMP_FIND_QUIETLY)
-        MESSAGE(STATUS "Found GMP: ${GMP_LIBRARY}")
-    endif()
-elseif(GMP_FOUND)
-    if(GMP_FIND_REQUIRED)
-        message(FATAL_ERROR "Could not find GMP")
-    endif()
-endif()
+include_directories(/home/keyhan/projects/c++/EogenVirtualMachine/include)
 
 add_executable(
         EogenVirtualMachine
-        EogenDriver.cpp
-        EogenRuntime.cpp
-        api/IO.cpp
-        api/IO.hpp
-        api/SysCallHandler.cpp
-        api/SysCallHandler.hpp
-        api/Time.cpp
-        api/Time.h)
+        Rider.c
+        Models.h
+        Dictionary.h
+)
+
+target_compile_options(EogenVirtualMachine PRIVATE -lmpir -lgmp)
 
 target_link_libraries(EogenVirtualMachine gmp)

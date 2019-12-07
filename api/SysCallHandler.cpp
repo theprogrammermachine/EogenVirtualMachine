@@ -3,8 +3,7 @@
 #include "SysCallHandler.hpp"
 #include "IO.hpp"
 #include "Time.h"
-#include "/usr/local/include/mpir.h"
-#include "/usr/local/include/gmp.h"
+#include "mpir/gmp.h"
 
 using namespace std;
 
@@ -23,4 +22,5 @@ Codes::Code* SysCallHandler::handleSystemCall(string callRef, unordered_map<stri
         valNum->setValue(result);
         return valNum;
     }
+    return new Codes::Code();
 }

@@ -56,8 +56,8 @@ int main(int argc, char const *argv[]) {
     auto* sum = new Codes::MathExpPower();
     auto* v1 = new Codes::ValueNumber();
     auto* v2 = new Codes::ValueNumber();
-    v1->setValue(5555555);
-    v2->setValue(333333);
+    v1->setValue(5555555555);
+    v2->setValue(3333333);
     sum->value1 = v1;
     sum->value2 = v2;
     assign->value = sum;

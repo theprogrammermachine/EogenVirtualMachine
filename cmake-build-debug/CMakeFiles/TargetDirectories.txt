@@ -1,3 +1,0 @@
-/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/EogenVirtualMachine.dir
-/home/keyhan/projects/c++/EogenVirtualMachine/cmake-build-debug/CMakeFiles/edit_cache.dir
