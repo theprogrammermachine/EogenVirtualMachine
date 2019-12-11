@@ -12,26 +12,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cff7cf8-7221-44bd-ae3b-f745bfe7182f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Driver.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/keyhan.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v3/List.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Buffer.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/EogenDriver.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/EogenRuntime.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/api/SysCallHandler.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/EogenVirtualMachine.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dictionary.h" beforeDir="false" afterPath="$PROJECT_DIR$/v3/Dictionary.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Driver.c" beforeDir="false" afterPath="$PROJECT_DIR$/v3/Driver.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EogenDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/v2/EogenDriver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EogenRuntime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/v2/EogenRuntime.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EogenRuntime.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/v2/EogenRuntime.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EogenVirtualMachine.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/EogenVirtualMachine.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models.h" beforeDir="false" afterPath="$PROJECT_DIR$/Models.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rider.c" beforeDir="false" afterPath="$PROJECT_DIR$/Rider.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models.h" beforeDir="false" afterPath="$PROJECT_DIR$/v3/Models.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/v2/Models.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rider.c" beforeDir="false" afterPath="$PROJECT_DIR$/v3/Rider.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack.h" beforeDir="false" afterPath="$PROJECT_DIR$/v3/Stack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/SysCallHandler.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/api/SysCallHandler.hpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,16 +72,19 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/v3" />
+      <recent name="$PROJECT_DIR$/v2" />
+      <recent name="$PROJECT_DIR$/include/mpir" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="D:\My Documents\Projects\C++\EogenVirtualMachine\include" />
       <recent name="D:\My Documents\Projects\C++\EogenVirtualMachine" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/include/mpir" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -125,8 +129,16 @@
       <workItem from="1572717465417" duration="31000" />
       <workItem from="1575567136636" duration="9167000" />
       <workItem from="1575629598183" duration="1584000" />
-      <workItem from="1575675440234" duration="15655000" />
+      <workItem from="1575675440234" duration="29027000" />
     </task>
+    <task id="LOCAL-00001" summary="trying to add expression resolver function">
+      <created>1575744635277</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575744635277</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +160,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="v3 started" />
-    <option name="LAST_COMMIT_MESSAGE" value="v3 started" />
+    <MESSAGE value="trying to add expression resolver function" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to add expression resolver function" />
   </component>
 </project>

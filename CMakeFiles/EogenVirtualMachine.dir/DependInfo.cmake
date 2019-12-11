@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/keyhan/projects/c++/EogenVirtualMachine/Driver.c" "/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles/EogenVirtualMachine.dir/Driver.c.o"
-  "/home/keyhan/projects/c++/EogenVirtualMachine/Rider.c" "/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles/EogenVirtualMachine.dir/Rider.c.o"
+  "/home/keyhan/projects/c++/EogenVirtualMachine/v3/Driver.c" "/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o"
+  "/home/keyhan/projects/c++/EogenVirtualMachine/v3/Rider.c" "/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

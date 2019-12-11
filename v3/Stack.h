@@ -9,17 +9,15 @@
 
 int stackSize = 0;
 
-struct DataItem {
+struct StackDataItem {
     void* data;
-    struct DataItem* prev;
+    struct StackDataItem* prev;
 };
 
-struct DataItem* hashArray[SIZE];
-struct DataItem* dummyItem;
-struct DataItem* item;
+struct StackDataItem* item;
 
 void push(void* data) {
-    struct DataItem* pItem = (struct DataItem*) malloc(sizeof(struct DataItem));
+    struct StackDataItem* pItem = (struct StackDataItem*) malloc(sizeof(struct StackDataItem));
     pItem->data = data;
     pItem->prev = item;
     stackSize++;

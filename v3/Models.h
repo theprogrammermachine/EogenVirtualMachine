@@ -1,9 +1,9 @@
 #include "Dictionary.h"
+#include "List.h"
 
 typedef struct
 {
-    // base members
-
+    char* type;
 } Exp;
 
 typedef struct
@@ -135,7 +135,7 @@ typedef struct
 typedef struct {
     Exp exp;
     void* value;
-    char* type;
+    char* valueType;
 } Value;
 
 typedef struct {
@@ -145,7 +145,37 @@ typedef struct {
 } Identifier;
 
 typedef struct {
+    char* type;
+} Code;
+
+typedef struct {
+    Code base;
+    Exp condition;
+    List codes;
+} If;
+
+typedef struct {
+    Code base;
+    Exp condition;
+    List codes;
+} ConditionalLoop;
+
+typedef struct {
+    Code base;
+    Identifier counter;
+    Exp limit;
+    Exp step;
+    List codes;
+} CounterLoop;
+
+typedef struct {
     Exp exp;
     void* funcRef;
     Dictionary entries;
 } Call;
+
+typedef struct {
+    char* funcName;
+    List params;
+    List codes;
+} Function;

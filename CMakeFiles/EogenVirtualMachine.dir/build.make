@@ -57,42 +57,42 @@ include CMakeFiles/EogenVirtualMachine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/EogenVirtualMachine.dir/flags.make
 
-CMakeFiles/EogenVirtualMachine.dir/Driver.c.o: CMakeFiles/EogenVirtualMachine.dir/flags.make
-CMakeFiles/EogenVirtualMachine.dir/Driver.c.o: Driver.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/EogenVirtualMachine.dir/Driver.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EogenVirtualMachine.dir/Driver.c.o   -c /home/keyhan/projects/c++/EogenVirtualMachine/Driver.c
+CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o: CMakeFiles/EogenVirtualMachine.dir/flags.make
+CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o: v3/Driver.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o   -c /home/keyhan/projects/c++/EogenVirtualMachine/v3/Driver.c
 
-CMakeFiles/EogenVirtualMachine.dir/Driver.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EogenVirtualMachine.dir/Driver.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/keyhan/projects/c++/EogenVirtualMachine/Driver.c > CMakeFiles/EogenVirtualMachine.dir/Driver.c.i
+CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/keyhan/projects/c++/EogenVirtualMachine/v3/Driver.c > CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.i
 
-CMakeFiles/EogenVirtualMachine.dir/Driver.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EogenVirtualMachine.dir/Driver.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/keyhan/projects/c++/EogenVirtualMachine/Driver.c -o CMakeFiles/EogenVirtualMachine.dir/Driver.c.s
+CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/keyhan/projects/c++/EogenVirtualMachine/v3/Driver.c -o CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.s
 
-CMakeFiles/EogenVirtualMachine.dir/Rider.c.o: CMakeFiles/EogenVirtualMachine.dir/flags.make
-CMakeFiles/EogenVirtualMachine.dir/Rider.c.o: Rider.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/EogenVirtualMachine.dir/Rider.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EogenVirtualMachine.dir/Rider.c.o   -c /home/keyhan/projects/c++/EogenVirtualMachine/Rider.c
+CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o: CMakeFiles/EogenVirtualMachine.dir/flags.make
+CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o: v3/Rider.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o   -c /home/keyhan/projects/c++/EogenVirtualMachine/v3/Rider.c
 
-CMakeFiles/EogenVirtualMachine.dir/Rider.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EogenVirtualMachine.dir/Rider.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/keyhan/projects/c++/EogenVirtualMachine/Rider.c > CMakeFiles/EogenVirtualMachine.dir/Rider.c.i
+CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/keyhan/projects/c++/EogenVirtualMachine/v3/Rider.c > CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.i
 
-CMakeFiles/EogenVirtualMachine.dir/Rider.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EogenVirtualMachine.dir/Rider.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/keyhan/projects/c++/EogenVirtualMachine/Rider.c -o CMakeFiles/EogenVirtualMachine.dir/Rider.c.s
+CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/keyhan/projects/c++/EogenVirtualMachine/v3/Rider.c -o CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.s
 
 # Object files for target EogenVirtualMachine
 EogenVirtualMachine_OBJECTS = \
-"CMakeFiles/EogenVirtualMachine.dir/Driver.c.o" \
-"CMakeFiles/EogenVirtualMachine.dir/Rider.c.o"
+"CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o" \
+"CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o"
 
 # External object files for target EogenVirtualMachine
 EogenVirtualMachine_EXTERNAL_OBJECTS =
 
-EogenVirtualMachine: CMakeFiles/EogenVirtualMachine.dir/Driver.c.o
-EogenVirtualMachine: CMakeFiles/EogenVirtualMachine.dir/Rider.c.o
+EogenVirtualMachine: CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o
+EogenVirtualMachine: CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o
 EogenVirtualMachine: CMakeFiles/EogenVirtualMachine.dir/build.make
 EogenVirtualMachine: CMakeFiles/EogenVirtualMachine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/keyhan/projects/c++/EogenVirtualMachine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable EogenVirtualMachine"

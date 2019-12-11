@@ -7,14 +7,14 @@
 
 #define SIZE 1000
 
-struct DataItem {
+struct DictDataItem {
     char* key;
     void* data;
 };
 
-struct DataItem* hashArray[SIZE];
-struct DataItem* dummyItem;
-struct DataItem* item;
+struct DictDataItem* dictHashArray[SIZE];
+struct DictDataItem* dictDummyItem;
+struct DictDataItem* dictItem;
 
 uint32_t jenkins_one_at_a_time_hash(const char* key, size_t len)
 {
@@ -31,20 +31,20 @@ uint32_t jenkins_one_at_a_time_hash(const char* key, size_t len)
     return hash;
 }
 
-uint32_t hashCode(char* key) {
+uint32_t dictHashCode(char* key) {
     return jenkins_one_at_a_time_hash(key, sizeof(key)) % SIZE;
 }
 
 
 void* search(char* key) {
     //get the hash
-    uint32_t hashIndex = hashCode(key);
+    uint32_t hashIndex = dictHashCode(key);
 
     //move in array until an empty
-    while(hashArray[hashIndex] != NULL) {
+    while(dictHashArray[hashIndex] != NULL) {
 
-        if(hashArray[hashIndex]->key == key)
-            return hashArray[hashIndex]->data;
+        if(dictHashArray[hashIndex]->key == key)
+            return dictHashArray[hashIndex]->data;
 
         //go to next cell
         ++hashIndex;
@@ -58,15 +58,15 @@ void* search(char* key) {
 
 void insert(char* key, void* data) {
 
-    struct DataItem* pItem = (struct DataItem*) malloc(sizeof(struct DataItem));
+    struct DictDataItem* pItem = (struct DictDataItem*) malloc(sizeof(struct DictDataItem));
     pItem->data = data;
     pItem->key = key;
 
     //get the hash
-    int hashIndex = hashCode(key);
+    int hashIndex = dictHashCode(key);
 
     //move in array until an empty or deleted cell
-    while(hashArray[hashIndex] != NULL && hashArray[hashIndex]->key != "dummy") {
+    while(dictHashArray[hashIndex] != NULL && strcmp(dictHashArray[hashIndex]->key, "dummy") != 0) {
         //go to next cell
         ++hashIndex;
 
@@ -74,22 +74,22 @@ void insert(char* key, void* data) {
         hashIndex %= SIZE;
     }
 
-    hashArray[hashIndex] = pItem;
+    dictHashArray[hashIndex] = pItem;
 }
 
 void* delete(char* key) {
 
     //get the hash
-    int hashIndex = hashCode(key);
+    int hashIndex = dictHashCode(key);
 
     //move in array until an empty
-    while(hashArray[hashIndex] != NULL) {
+    while(dictHashArray[hashIndex] != NULL) {
 
-        if(hashArray[hashIndex]->key == key) {
-            struct DataItem* temp = hashArray[hashIndex];
+        if(dictHashArray[hashIndex]->key == key) {
+            struct DictDataItem* temp = dictHashArray[hashIndex];
 
             //assign a dummy item at deleted position
-            hashArray[hashIndex] = dummyItem;
+            dictHashArray[hashIndex] = dictDummyItem;
             return temp->data;
         }
 
@@ -108,8 +108,8 @@ void display() {
 
     for(i = 0; i<SIZE; i++) {
 
-        if(hashArray[i] != NULL)
-            printf(" (%s,%s)", hashArray[i]->key, hashArray[i]->data);
+        if(dictHashArray[i] != NULL)
+            printf(" (%s,%s)", dictHashArray[i]->key, dictHashArray[i]->data);
         else
             printf(" ~~ ");
     }

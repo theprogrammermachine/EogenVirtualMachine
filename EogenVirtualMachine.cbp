@@ -74,19 +74,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Dictionary.h">
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/v3/Dictionary.h">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
-		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Driver.c">
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/v3/Driver.c">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
-		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Models.h">
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/v3/List.h">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
-		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Rider.c">
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/v3/Models.h">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
-		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/Stack.h">
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/v3/Rider.c">
+			<Option target="EogenVirtualMachine"/>
+		</Unit>
+		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/v3/Stack.h">
 			<Option target="EogenVirtualMachine"/>
 		</Unit>
 		<Unit filename="/home/keyhan/projects/c++/EogenVirtualMachine/CMakeLists.txt">

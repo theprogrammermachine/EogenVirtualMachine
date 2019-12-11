@@ -123,59 +123,59 @@ EogenVirtualMachine/fast:
 	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/build
 .PHONY : EogenVirtualMachine/fast
 
-Driver.o: Driver.c.o
+v3/Driver.o: v3/Driver.c.o
 
-.PHONY : Driver.o
-
-# target to build an object file
-Driver.c.o:
-	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Driver.c.o
-.PHONY : Driver.c.o
-
-Driver.i: Driver.c.i
-
-.PHONY : Driver.i
-
-# target to preprocess a source file
-Driver.c.i:
-	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Driver.c.i
-.PHONY : Driver.c.i
-
-Driver.s: Driver.c.s
-
-.PHONY : Driver.s
-
-# target to generate assembly for a file
-Driver.c.s:
-	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Driver.c.s
-.PHONY : Driver.c.s
-
-Rider.o: Rider.c.o
-
-.PHONY : Rider.o
+.PHONY : v3/Driver.o
 
 # target to build an object file
-Rider.c.o:
-	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Rider.c.o
-.PHONY : Rider.c.o
+v3/Driver.c.o:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o
+.PHONY : v3/Driver.c.o
 
-Rider.i: Rider.c.i
+v3/Driver.i: v3/Driver.c.i
 
-.PHONY : Rider.i
+.PHONY : v3/Driver.i
 
 # target to preprocess a source file
-Rider.c.i:
-	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Rider.c.i
-.PHONY : Rider.c.i
+v3/Driver.c.i:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.i
+.PHONY : v3/Driver.c.i
 
-Rider.s: Rider.c.s
+v3/Driver.s: v3/Driver.c.s
 
-.PHONY : Rider.s
+.PHONY : v3/Driver.s
 
 # target to generate assembly for a file
-Rider.c.s:
-	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/Rider.c.s
-.PHONY : Rider.c.s
+v3/Driver.c.s:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.s
+.PHONY : v3/Driver.c.s
+
+v3/Rider.o: v3/Rider.c.o
+
+.PHONY : v3/Rider.o
+
+# target to build an object file
+v3/Rider.c.o:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o
+.PHONY : v3/Rider.c.o
+
+v3/Rider.i: v3/Rider.c.i
+
+.PHONY : v3/Rider.i
+
+# target to preprocess a source file
+v3/Rider.c.i:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.i
+.PHONY : v3/Rider.c.i
+
+v3/Rider.s: v3/Rider.c.s
+
+.PHONY : v3/Rider.s
+
+# target to generate assembly for a file
+v3/Rider.c.s:
+	$(MAKE) -f CMakeFiles/EogenVirtualMachine.dir/build.make CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.s
+.PHONY : v3/Rider.c.s
 
 # Help Target
 help:
@@ -186,12 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... EogenVirtualMachine"
 	@echo "... edit_cache"
-	@echo "... Driver.o"
-	@echo "... Driver.i"
-	@echo "... Driver.s"
-	@echo "... Rider.o"
-	@echo "... Rider.i"
-	@echo "... Rider.s"
+	@echo "... v3/Driver.o"
+	@echo "... v3/Driver.i"
+	@echo "... v3/Driver.s"
+	@echo "... v3/Rider.o"
+	@echo "... v3/Rider.i"
+	@echo "... v3/Rider.s"
 .PHONY : help
 
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/EogenVirtualMachine.dir/Driver.c.o"
-  "CMakeFiles/EogenVirtualMachine.dir/Rider.c.o"
+  "CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o"
+  "CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o"
   "EogenVirtualMachine"
   "EogenVirtualMachine.pdb"
 )

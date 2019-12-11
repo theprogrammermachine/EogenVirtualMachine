@@ -1,6 +1,6 @@
 #include "EogenRuntime.hpp"
 #include <vector>
-#include "api/IO.hpp"
+#include "../api/IO.hpp"
 #include <mpir/mpir.h>
 
 using namespace std;
