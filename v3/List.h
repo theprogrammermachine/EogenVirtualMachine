@@ -8,51 +8,49 @@ struct ListDataItem {
     struct ListDataItem* next;
 };
 
-struct ListDataItem* listPointer;
-struct ListDataItem* iteratorPointer;
+struct List {
+    int size;
+    struct ListDataItem* listPointer;
+    struct ListDataItem* iteratorPointer;
+    void  (*append)(struct List*, void*);
+    void* (*iteratorForward)(struct List*);
+    void* (*iteratorBackward)(struct List*);
+    bool  (*iteratorHasNext)(struct List*);
+    bool  (*iteratorHasBefore)(struct List*);
+};
 
-void append(void* item) {
-    struct ListDataItem pItem;
-    pItem.data = item;
-    if (listPointer->data != NULL) {
-        pItem.prev = listPointer;
-        listPointer->next = &pItem;
+void listAdd(struct List* list, void* item) {
+    struct ListDataItem* pItem = malloc(sizeof(struct ListDataItem));
+    pItem->data = item;
+    if (list->listPointer != NULL) {
+        pItem->prev = list->listPointer;
+        list->listPointer->next = pItem;
     }
-    listPointer = &pItem;
+    if (list->iteratorPointer == NULL) {
+        list->iteratorPointer = pItem;
+        list->iteratorPointer->next = NULL;
+        list->iteratorPointer->prev = NULL;
+    }
+    list->listPointer = pItem;
+    list->size++;
 }
 
-void* iteratorForward() {
-    iteratorPointer = iteratorPointer->prev;
-    return iteratorPointer->data;
+void* iteratorForward(struct List* list) {
+    void* data = list->iteratorPointer->data;
+    list->iteratorPointer = list->iteratorPointer->next;
+    return data;
 }
 
-void* iteratorBackward() {
-    iteratorPointer = iteratorPointer->next;
-    return iteratorPointer->data;
+void* iteratorBackward(struct List* list) {
+    void* data = list->iteratorPointer->data;
+    list->iteratorPointer = list->iteratorPointer->prev;
+    return data;
 }
 
-bool iteratorHasNext() {
-    return (iteratorPointer->next != NULL);
+bool iteratorHasNext(struct List* list) {
+    return (list->iteratorPointer != NULL);
 }
 
-bool iteratorHasBefore() {
-    return (iteratorPointer->prev != NULL);
-}
-
-typedef struct {
-    void (*append)(void*);
-    void* (*iteratorForward)();
-    void* (*iteratorBackward)();
-    bool (*iteratorHasNext)();
-    bool (*iteratorHasBefore)();
-} List;
-
-List createList() {
-    List list;
-    list.append = append;
-    list.iteratorHasNext = iteratorHasNext;
-    list.iteratorHasBefore = iteratorHasBefore;
-    list.iteratorForward = iteratorForward;
-    list.iteratorBackward = iteratorBackward;
-    return list;
+bool iteratorHasBefore(struct List* list) {
+    return (list->iteratorPointer != NULL);
 }

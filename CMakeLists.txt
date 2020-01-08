@@ -15,17 +15,20 @@ else()
 endif()
 
 include_directories(/home/keyhan/globe_libs/boost_1_70_0)
+include_directories(/home/keyhan/globe_libs/mpir-3.0.0)
 include_directories(/home/keyhan/projects/c++/EogenVirtualMachine/api)
 include_directories(/home/keyhan/projects/c++/EogenVirtualMachine/include)
 
 add_executable(
         EogenVirtualMachine
-        v3/Driver.c
-        v3/Rider.c
-        v3/Models.h
+        v3/main.c
+        v3/Rider.h
         v3/Dictionary.h
-        v3/Stack.h v3/List.h)
+        v3/List.h
+        v3/Stack.h
+        v3/Models.h
+        v3/Dictionary.c)
 
-target_compile_options(EogenVirtualMachine PRIVATE -lmpir -lgmp)
+target_compile_options(EogenVirtualMachine PRIVATE -lmpir -lgmp -lm)
 
-target_link_libraries(EogenVirtualMachine gmp)
+target_link_libraries(EogenVirtualMachine gmp m)

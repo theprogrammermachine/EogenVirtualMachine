@@ -1,9 +1,4 @@
-#include <bits/mathcalls.h>
-#include "Models.h"
-#include "Stack.h"
-#include "Dictionary.h"
-#include <math.h>
-#include <float.h>
+#include "Rider.h"
 
 char* code;
 int machineState = 0x00;
@@ -593,105 +588,120 @@ Exp calculate() {
         if (machineState == 0x71) {
             if (code[pointer] == 0x01) {
                 machineState = 0x711;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x72) {
             if (code[pointer] == 0x01) {
                 machineState = 0x721;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x73) {
             if (code[pointer] == 0x01) {
                 machineState = 0x731;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x74) {
             if (code[pointer] == 0x01) {
                 machineState = 0x741;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x75) {
             if (code[pointer] == 0x01) {
                 machineState = 0x751;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x76) {
             if (code[pointer] == 0x01) {
                 machineState = 0x761;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x77) {
             if (code[pointer] == 0x01) {
                 machineState = 0x771;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x78) {
             if (code[pointer] == 0x01) {
                 machineState = 0x781;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x79) {
             if (code[pointer] == 0x01) {
                 machineState = 0x791;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x7a) {
             if (code[pointer] == 0x01) {
                 machineState = 0x7a1;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x7b) {
             if (code[pointer] == 0x01) {
                 machineState = 0x7b1;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x7c) {
             if (code[pointer] == 0x01) {
                 machineState = 0x7c1;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x7d) {
             if (code[pointer] == 0x01) {
                 machineState = 0x7d1;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x7e) {
             if (code[pointer] == 0x01) {
                 machineState = 0x7e1;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
         } else if (machineState == 0x55) {
             if (code[pointer] == 0x01) {
                 machineState = 0x551;
-                expStack.push(&createDictionary());
+                Dictionary dict = createDictionary();
+                expStack.push(&dict);
                 pointer++;
                 continue;
             }
@@ -1121,15 +1131,129 @@ Exp calculate() {
     }
 }
 
-void ride() {
+List ride(bool execute) {
+    List scope = createList();
     while (sizeof(code) > pointer) {
         if (machineState == 0x00) {
             if (code[pointer] == 0x51) {
                 machineState = code[pointer];
                 pointer++;
-            } else if (code[pointer] == 0x52) {
+                if (code[pointer] == 0x01) {
+                    machineState = 0x511;
+                    pointer++;
+                    char funcNameLengthBytes[4];
+                    for (int index = 0; index < (int)sizeof(funcNameLengthBytes); index++)
+                        funcNameLengthBytes[index] = code[pointer + index];
+                    pointer += (int)sizeof(funcNameLengthBytes);
+                    int funcNameLength = *(int*)funcNameLengthBytes;
+                    char funcName[funcNameLength];
+                    for (int index = 0; index < funcNameLength; index++)
+                        funcName[index] = code[pointer + index];
+                    pointer += funcNameLength;
+                    ((Dictionary*)bufferStack.top())->put("funcName", funcName);
+                    machineState = 0x512;
+                    if (code[pointer] == 0x02) {
+                        char funcLevelLengthBytes[4];
+                        for (int index = 0; index < (int)sizeof(funcLevelLengthBytes); index++)
+                            funcLevelLengthBytes[index] = code[pointer + index];
+                        pointer += (int)sizeof(funcLevelLengthBytes);
+                        int funcLevelLength = *(int*)funcLevelLengthBytes;
+                        char funcLevelStr[funcLevelLength];
+                        for (int index = 0; index < funcLevelLength; index++)
+                            funcLevelStr[index] = code[pointer + index];
+                        pointer += funcLevelLength;
+                        ((Dictionary*)bufferStack.top())->put("funcName", funcLevelStr);
+                        machineState = 0x513;
+                        if (code[pointer] == 0x03) {
+                            List identifiers = createList();
+                            char paramsCountBytes[4];
+                            for (int index = 0; index < 4; index++)
+                                paramsCountBytes[index] = code[pointer + index];
+                            pointer += 4;
+                            int paramsCount = *(int*)paramsCountBytes;
+                            for (int counter = 0; counter < paramsCount; counter++) {
+                                char paramLengthBytes[4];
+                                for (int index = 0; index < (int)sizeof(paramLengthBytes); index++)
+                                    paramLengthBytes[index] = code[pointer + index];
+                                pointer += (int)sizeof(paramLengthBytes);
+                                int paramLength = *(int*)paramLengthBytes;
+                                pointer += paramLength;
+                                char idStr[paramLength];
+                                for (int index = 0; index < paramLength; index++)
+                                    idStr[index] = code[pointer + index];
+                                pointer += paramLength;
+                                char* id = idStr;
+                                identifiers.append(id);
+                            }
+                            machineState = 0x514;
+                            if (code[pointer] == 0x04) {
+                                pointer++;
+                                if (code[pointer] == 0x06f) {
+                                    pointer++;
+                                    Dictionary dict = createDictionary();
+                                    bufferStack.push(&dict);
+                                    List codes = ride(false);
+                                    bufferStack.pop();
+                                    if (code[pointer] == 0x6e) {
+                                        pointer++;
+                                        Function function;
+                                        function.funcName = funcName;
+                                        function.params = identifiers;
+                                        function.codes = codes;
+                                        if (execute)
+                                            scope.append(&function);
+                                        ((Dictionary*)dataStack.top())->put(funcName, &function);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else if (code[pointer] == 0x55) {
                 machineState = code[pointer];
                 pointer++;
+                if (code[pointer] == 0x01) {
+                    pointer++;
+                    Exp funcRefRaw = calculate();
+                    Identifier funcRef = * (Identifier*) &funcRefRaw;
+                    if (code[pointer] == 0x02) {
+                        pointer++;
+                        char entriesCountBytes[4];
+                        for (int index = 0; index < 4; index++)
+                            entriesCountBytes[index] = code[pointer + index];
+                        pointer += 4;
+                        int entriesCount = *(int*)entriesCountBytes;
+                        Dictionary entriesDict = createDictionary();
+                        for (int counter = 0; counter < entriesCount; counter++) {
+                            if (code[pointer] == 0x03) {
+                                pointer++;
+                                char keyLengthBytes[4];
+                                for (int index = 0; index < 4; index++)
+                                    keyLengthBytes[index] = code[pointer + index];
+                                pointer += 4;
+                                int keyLength = *(int*)keyLengthBytes;
+                                char keyBytes[keyLength];
+                                for (int index = 0; index < keyLength; index++)
+                                    keyBytes[index] = code[pointer + index];
+                                pointer += 4;
+                                char* key = keyBytes;
+                                char valueLengthBytes[4];
+                                for (int index = 0; index < 4; index++)
+                                    valueLengthBytes[index] = code[pointer + index];
+                                pointer += 4;
+                                int valueLength = *(int*)valueLengthBytes;
+                                Exp value = calculate();
+                                entriesDict.put(key, &value);
+                            }
+                            Call call;
+                            call.funcRef = &funcRef;
+                            call.entries = entriesDict;
+                            if (execute)
+                                scope.append(&call);
+                            routeAndResolve(funcRef.id, entriesDict);
+                        }
+                    }
+                }
             } else if (code[pointer] == 0x53) {
                 machineState = code[pointer];
                 pointer++;
@@ -1181,17 +1305,7 @@ void ride() {
             }
         }
         else if (machineState == 0x511) {
-            char funcNameLengthBytes[4];
-            for (int index = 0; index < (int)sizeof(funcNameLengthBytes); index++)
-                funcNameLengthBytes[index] = code[pointer + index];
-            pointer += (int)sizeof(funcNameLengthBytes);
-            int funcNameLength = *(int*)funcNameLengthBytes;
-            char funcName[funcNameLength];
-            for (int index = 0; index < funcNameLength; index++)
-                funcName[index] = code[pointer + index];
-            pointer += funcNameLength;
-            ((Dictionary*)bufferStack.top())->put("funcName", funcName);
-            machineState = 0x512;
+
         } else if (machineState == 0x521) {
             char funcNameLengthBytes[4];
             for (int index = 0; index < (int)sizeof(funcNameLengthBytes); index++)
@@ -1213,5 +1327,5 @@ void execute(char c[]) {
     bufferStack = createStack();
     expStack = createStack();
     dataStack = createStack();
-    ride();
+    ride(false);
 }

@@ -5,61 +5,56 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define SIZE 1000
-
-int stackSize = 0;
-
 struct StackDataItem {
     void* data;
     struct StackDataItem* prev;
 };
 
-struct StackDataItem* item;
+struct Stack {
 
-void push(void* data) {
+    int stackSize;
+    struct StackDataItem* item;
+
+    void (*push)(struct Stack*, void*);
+    void* (*top)(struct Stack*);
+    void* (*pop)(struct Stack*);
+    int (*size)(struct Stack*);
+    bool (*isEmpty)(struct Stack*);
+    struct StackDataItem* (*iterator)(struct Stack*);
+};
+
+void push(struct Stack* stack ,void* data) {
     struct StackDataItem* pItem = (struct StackDataItem*) malloc(sizeof(struct StackDataItem));
     pItem->data = data;
-    pItem->prev = item;
-    stackSize++;
+    pItem->prev = stack->item;
+    stack->item = pItem;
+    stack->stackSize++;
 }
 
-void* top() {
-    if (item == NULL)
-        return NULL;
-    return item->data;
+struct StackDataItem* iterator(struct Stack* stack) {
+    struct StackDataItem* iterator = stack->item;
+    return iterator;
 }
 
-void* pop() {
-    if (item == NULL)
+void* top(struct Stack* stack) {
+    if (stack->item == NULL)
         return NULL;
-    void* topData = item->data;
-    item = item->prev;
-    stackSize--;
+    return stack->item->data;
+}
+
+void* pop(struct Stack* stack) {
+    if (stack->item == NULL)
+        return NULL;
+    void* topData = stack->item->data;
+    stack->item = stack->item->prev;
+    stack->stackSize--;
     return topData;
 }
 
-int size() {
-    return stackSize;
+int size(struct Stack* stack) {
+    return stack->stackSize;
 }
 
-bool isEmpty() {
-    return stackSize == 0;
-}
-
-typedef struct {
-    void (*push)(void*);
-    void* (*top)();
-    void* (*pop)();
-    int (*size)();
-    bool (*isEmpty)();
-} Stack;
-
-Stack createStack() {
-    Stack stack;
-    stack.push = push;
-    stack.top = top;
-    stack.pop = pop;
-    stack.size = size;
-    stack.isEmpty = isEmpty;
-    return stack;
+bool isEmpty(struct Stack* stack) {
+    return stack->stackSize == 0;
 }

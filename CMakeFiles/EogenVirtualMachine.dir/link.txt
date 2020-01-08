@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/EogenVirtualMachine.dir/v3/Driver.c.o CMakeFiles/EogenVirtualMachine.dir/v3/Rider.c.o  -o EogenVirtualMachine -lgmp 
+/usr/bin/cc -g   CMakeFiles/EogenVirtualMachine.dir/v3/main.c.o CMakeFiles/EogenVirtualMachine.dir/v3/Dictionary.c.o  -o EogenVirtualMachine -lgmp -lm 

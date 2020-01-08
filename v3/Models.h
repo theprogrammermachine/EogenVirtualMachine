@@ -1,8 +1,14 @@
-#include "Dictionary.h"
+
 #include "List.h"
+#include "Dictionary.h"
+
+typedef struct {
+    char* type;
+} Code;
 
 typedef struct
 {
+    Code base;
     char* type;
 } Exp;
 
@@ -134,48 +140,125 @@ typedef struct
 
 typedef struct {
     Exp exp;
-    void* value;
     char* valueType;
 } Value;
 
 typedef struct {
+    Value base;
+    char* value;
+} StringValue;
+
+typedef struct {
+    Value base;
+    double value;
+} DoubleValue;
+
+typedef struct {
+    Value base;
+    float value;
+} FloatValue;
+
+typedef struct {
+    Value base;
+    long value;
+} LongValue;
+
+typedef struct {
+    Value base;
+    int value;
+} IntValue;
+
+typedef struct {
+    Value base;
+    short value;
+} ShortValue;
+
+typedef struct {
+    Value base;
+    bool value;
+} BoolValue;
+
+typedef struct {
+    Code base;
+    Dictionary* value;
+    Dictionary* funcs;
+} Object;
+
+typedef struct {
     Exp exp;
     char* id;
-    Value value;
 } Identifier;
 
+struct Reference {
+    Code base;
+    Identifier* currentChain;
+    struct Reference* restOfTheChain;
+};
+
+struct If {
+    Code base;
+    Exp* condition;
+    struct List* codes;
+    struct List* elseParts;
+};
+
 typedef struct {
-    char* type;
-} Code;
+    Code base;
+    Exp* condition;
+    struct List* codes;
+} ElseIf;
+
+typedef struct {
+    Code base;
+    struct List* codes;
+} Else;
 
 typedef struct {
     Code base;
     Exp condition;
-    List codes;
-} If;
-
-typedef struct {
-    Code base;
-    Exp condition;
-    List codes;
+    struct List* codes;
 } ConditionalLoop;
 
 typedef struct {
     Code base;
-    Identifier counter;
-    Exp limit;
-    Exp step;
-    List codes;
+    Identifier* counter;
+    Exp* limit;
+    Exp* step;
+    struct List* codes;
 } CounterLoop;
 
 typedef struct {
-    Exp exp;
-    void* funcRef;
-    Dictionary entries;
+    Code base;
+    Code* funcRef;
+    Dictionary* entries;
 } Call;
 
 typedef struct {
+    Code base;
+    Identifier* id;
+    unsigned long loc;
+    char* value;
+} Prop;
+
+typedef struct {
+    Code base;
     char* funcName;
-    List params;
-    List codes;
+    struct List* params;
+    unsigned long loc;
+    char* codes;
 } Function;
+
+typedef struct {
+    Code base;
+    char* className;
+    struct List* inheritance;
+    struct List* behavior;
+    struct List* properties;
+    Dictionary* functions;
+} Class;
+
+typedef struct {
+    char* code;
+    unsigned long loc;
+    unsigned long pointer;
+} CodePack;
